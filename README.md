@@ -48,3 +48,19 @@ The code colors the syntax into four methods:
 To add your own Programming language and color it individually, you must create a new Unit from which the syntax coloring takes place. Otherwise, there would be overlaps with the other programming languages.
 
 * First, create an empty *.pas file and rename it to your new programming language, Example: ```VisualBasic.vbs```
+* Second, copy the contents of the "CodeToHTML.pas" file into your new file.
+* Open the new *.pas file and rename the unit to VisualBasic.
+* Now you have to make modifications to the code.
+* Under Type, rename the ```TDelphiToHTML``` class to ```TVisualBasic```
+
+```
+type
+  TDelphiToHTML = class(TObject)
+
+type
+  TVisualBasic = class(TObject)
+```
+
+* After that, all functions must be renamed to the new class. The debugger will show you where.
+
+
