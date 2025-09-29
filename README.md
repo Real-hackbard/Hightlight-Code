@@ -25,3 +25,9 @@ Syntax highlighting is a form of [secondary notation](https://en.wikipedia.org/w
 
 </br>
 
+![c_highlight](https://github.com/user-attachments/assets/635289ef-a9cf-4c20-a7d6-b7bb47257b39)
+
+</br>
+
+
+
