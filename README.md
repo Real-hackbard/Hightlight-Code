@@ -53,9 +53,13 @@ To add your own Programming language and color it individually, you must create 
 * Now you have to make modifications to the code.
 * Under Type, rename the ```TDelphiToHTML``` class to ```TVisualBasic```
 
-```
+```pascal
+
+// Rename
 type
   TDelphiToHTML = class(TObject)
+
+// in
 
 type
   TVisualBasic = class(TObject)
