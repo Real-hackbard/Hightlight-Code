@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> New Delphi Code </title>
+<meta name="Generator" content="Delphi Code Modifier">
+ <meta content="text/html; charset=windows-1251" http-equiv="content-type">
+</head>
+<body text="Black" style="background-color:rgb(255,255,255);">
+<pre>
+    //////////////////////////////////
+    // Copyright©  : 2025            /
+    // Author :      hackbard        /
+    // Date :        9.11.2001       /
+    // Description : Highlight Codes /
+    // Code :        Pascal          /
+    //////////////////////////////////
+
+
+<b style="color: Navy;">#include</b> &lt;iostream&gt;
+<b style="color: Navy;">#include</b> &lt;iomanip&gt;
+<b style="color: Navy;">#include</b> &lt;cstdlib&gt;
+<b style="color: Navy;">#include</b> &lt;ctime&gt;
+<b style="color: Navy;">using</b> <b style="color: Navy;">namespace</b> std;
+
+<b style="color: Navy;">void</b> BubbleSort(<b style="color: Navy;">int</b> <span style="color: Red;">[]</span> , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b>);
+<b style="color: Navy;">int</b> BinarySearch (<b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArrayName<span style="color: Red;">[]</span>, <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArraySize, <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> SearchKey , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> FromIndex, <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ToIndex);
+<b style="color: Navy;">void</b> ShowArray (<b style="color: Navy;">const</b> <b style="color: Navy;">int</b> <span style="color: Red;">[]</span> , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b>);
+
+<b style="color: Navy;">int</b> <b style="color: Navy;">main</b>()
+{
+   <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArraySize = <span style="color: Teal;">90</span>;
+   <b style="color: Navy;">int</b> Array1<span style="color: Red;">[ArraySize]</span>;
+   <b style="color: Navy;">int</b> SearchFor , Result;
+
+   <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Enter an integer between 10 and 99 to search for: "</span>;
+   <b style="color: Navy;">cin</b> &gt;&gt; SearchFor;
+   <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"\n"</span>;
+
+   srand (time(<b style="color: Navy;">NULL</b>));
+   <b style="color: Navy;">for</b> (<b style="color: Navy;">int</b> i = <span style="color: Teal;">0</span>; i &lt; ArraySize ; i++)
+      Array1<span style="color: Red;">[i]</span> = <span style="color: Teal;">10</span> + rand() % <span style="color: Teal;">90</span>;
+
+   BubbleSort (Array1 , ArraySize);
+   Result = BinarySearch(Array1,ArraySize,SearchFor,<span style="color: Teal;">0</span>,ArraySize-<span style="color: Teal;">1</span>);
+   ShowArray(Array1,ArraySize,Result);
+   
+   <b style="color: Navy;">return</b> <span style="color: Teal;">0</span>;
+}
+
+<b style="color: Navy;">void</b> BubbleSort(<b style="color: Navy;">int</b> Array1<span style="color: Red;">[]</span> , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArraySize)
+{
+   <b style="color: Navy;">for</b>(<b style="color: Navy;">int</b> i = <span style="color: Teal;">0</span> ; i &lt; ArraySize-<span style="color: Teal;">1</span> ; i++)
+      <b style="color: Navy;">for</b> (<b style="color: Navy;">int</b> j = <span style="color: Teal;">0</span>; j &lt; ArraySize-<span style="color: Teal;">1</span> ; j++)
+         <b style="color: Navy;">if</b> (Array1<span style="color: Red;">[j]</span> &lt; Array1<span style="color: Red;">[j+1]</span>)
+         {
+            <b style="color: Navy;">int</b> hold = Array1<span style="color: Red;">[j]</span>;
+            Array1<span style="color: Red;">[j]</span> = Array1<span style="color: Red;">[j+1]</span>;
+            Array1<span style="color: Red;">[j+1]</span> = hold;
+         }
+}
+
+<i style="color: Gray;">// It performs a binary search on a bubble-sorted (descendingly ordered) array. RECURSIVE VERSION</i>
+<i style="color: Gray;">// And returns the subscript of the found item or -1 if it is not found.</i>
+<i style="color: Gray;">// FromIndex and ToIndex makes a sub-array out of the original array.</i>
+<b style="color: Navy;">int</b> BinarySearch (<b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArrayName<span style="color: Red;">[]</span>, <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArraySize, <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> SearchKey , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> FromIndex, <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ToIndex)
+{
+   <b style="color: Navy;">int</b> SearchResult , MidIndex;
+   <b style="color: Navy;">if</b> (ToIndex - FromIndex == <span style="color: Teal;">1</span>)
+   {
+      <b style="color: Navy;">if</b> (SearchKey == ArrayName<span style="color: Red;">[FromIndex]</span>)
+         SearchResult = FromIndex;
+      <b style="color: Navy;">else</b> <b style="color: Navy;">if</b> (SearchKey == ArrayName<span style="color: Red;">[ToIndex]</span>)
+         SearchResult = ToIndex;
+      <b style="color: Navy;">else</b> 
+         SearchResult = -<span style="color: Teal;">1</span>;
+   }
+   <b style="color: Navy;">else</b>
+   {
+      MidIndex = (ToIndex + FromIndex) / <span style="color: Teal;">2</span>;
+      <b style="color: Navy;">if</b> (SearchKey == ArrayName<span style="color: Red;">[MidIndex]</span>)
+         SearchResult = MidIndex;
+      <b style="color: Navy;">else</b> <b style="color: Navy;">if</b> (SearchKey &gt; ArrayName<span style="color: Red;">[MidIndex]</span>)
+         SearchResult = BinarySearch (ArrayName,ArraySize,SearchKey,FromIndex,MidIndex);
+      <b style="color: Navy;">else</b> <b style="color: Navy;">if</b> (SearchKey &lt; ArrayName<span style="color: Red;">[MidIndex]</span>)
+         SearchResult = BinarySearch (ArrayName,ArraySize,SearchKey,MidIndex,ToIndex);
+   }
+
+   <b style="color: Navy;">return</b> SearchResult;
+}
+
+<b style="color: Navy;">void</b> ShowArray (<b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArrayName<span style="color: Red;">[]</span> , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> ArraySize , <b style="color: Navy;">const</b> <b style="color: Navy;">int</b> Index)
+{
+   <b style="color: Navy;">for</b> (<b style="color: Navy;">int</b> i = <span style="color: Teal;">0</span> ; i &lt; ArraySize ; i++)
+   {
+      <b style="color: Navy;">cout</b> &lt;&lt; ArrayName<span style="color: Red;">[i]</span>;
+      <b style="color: Navy;">if</b> (i == Index)
+         <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"* "</span>;
+      <b style="color: Navy;">else</b> 
+         <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"  "</span>;
+      <b style="color: Navy;">if</b> ((i+<span style="color: Teal;">1</span> % <span style="color: Teal;">10</span>) == <span style="color: Teal;">0</span>)
+         <b style="color: Navy;">cout</b> &lt;&lt; <b style="color: Navy;">endl</b>;
+<i style="color: Gray;">/*
+   }
+
+   cout &lt;&lt; "\n\n";
+   if (Index &lt; 0)
+      cout &lt;&lt; "Not Found!";
+   else
+      cout &lt;&lt; "Your number has the subscript of: " &lt;&lt; Index;
+   cout &lt;&lt; "\n";
+}
+*/</i>
+
+<i style="color: Gray;">// Complex numbers are entered by the user</i>
+
+<b style="color: Navy;">#include</b> &lt;iostream&gt;
+<b style="color: Navy;">using</b> <b style="color: Navy;">namespace</b> std;
+
+<b style="color: Navy;">typedef</b> <b style="color: Navy;">struct</b> <b style="color: Navy;">complex</b> {
+    <b style="color: Navy;">float</b> real;
+    <b style="color: Navy;">float</b> imag;
+} complexNumber;
+
+complexNumber addComplexNumbers(<b style="color: Navy;">complex</b>, <b style="color: Navy;">complex</b>);
+
+<b style="color: Navy;">int</b> <b style="color: Navy;">main</b>() {
+    complexNumber num1, num2, complexSum;
+    <b style="color: Navy;">char</b> signOfImag;
+
+    <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"For 1st complex number,"</span> &lt;&lt; <b style="color: Navy;">endl</b>;
+    <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Enter real and imaginary parts respectively:"</span> &lt;&lt; <b style="color: Navy;">endl</b>;
+    <b style="color: Navy;">cin</b> &gt;&gt; num1.real &gt;&gt; num1.imag;
+
+    <b style="color: Navy;">cout</b> &lt;&lt; <b style="color: Navy;">endl</b>
+         &lt;&lt; <span style="color: Green;">"For 2nd complex number,"</span> &lt;&lt; <b style="color: Navy;">endl</b>;
+    <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Enter real and imaginary parts respectively:"</span> &lt;&lt; <b style="color: Navy;">endl</b>;
+    <b style="color: Navy;">cin</b> &gt;&gt; num2.real &gt;&gt; num2.imag;
+
+    <i style="color: Gray;">// Call add function and store result in complexSum</i>
+    complexSum = addComplexNumbers(num1, num2);
+
+    <i style="color: Gray;">// Use Ternary Operator to check the sign of the imaginary number</i>
+    signOfImag = (complexSum.imag &gt; <span style="color: Teal;">0</span>) ? '+' : '-';
+
+    <i style="color: Gray;">// Use Ternary Operator to adjust the sign of the imaginary number</i>
+    complexSum.imag = (complexSum.imag &gt; <span style="color: Teal;">0</span>) ? complexSum.imag : -complexSum.imag;
+
+    <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Sum = "</span> &lt;&lt; complexSum.real &lt;&lt; signOfImag &lt;&lt; complexSum.imag &lt;&lt; <span style="color: Green;">"i"</span>;
+
+    <b style="color: Navy;">return</b> <span style="color: Teal;">0</span>;
+}
+
+complexNumber addComplexNumbers(<b style="color: Navy;">complex</b> num1, <b style="color: Navy;">complex</b> num2) {
+    <b style="color: Navy;">complex</b> temp;
+    temp.real = num1.real + num2.real;
+    temp.imag = num1.imag + num2.imag;
+    <b style="color: Navy;">return</b> (temp);
+}
+
+<b style="color: Navy;">#include</b> &lt;iostream&gt;
+<b style="color: Navy;">using</b> <b style="color: Navy;">namespace</b> std;
+
+<b style="color: Navy;">class</b> <b style="color: Navy;">Complex</b>
+{
+    <b style="color: Navy;">private</b>:
+      <b style="color: Navy;">float</b> real;
+      <b style="color: Navy;">float</b> imag;
+    <b style="color: Navy;">public</b>:
+       <b style="color: Navy;">Complex</b>(): real(<span style="color: Teal;">0</span>), imag(<span style="color: Teal;">0</span>){ }
+       <b style="color: Navy;">void</b> input()
+       {
+           <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Enter real and imaginary parts respectively: "</span>;
+           <b style="color: Navy;">cin</b> &gt;&gt; real;
+           <b style="color: Navy;">cin</b> &gt;&gt; imag;
+       }
+
+       <i style="color: Gray;">// Operator overloading</i>
+       <b style="color: Navy;">Complex</b> <b style="color: Navy;">operator</b> - (<b style="color: Navy;">Complex</b> c2)
+       {
+           <b style="color: Navy;">Complex</b> temp;
+           temp.real = real - c2.real;
+           temp.imag = imag - c2.imag;
+
+           <b style="color: Navy;">return</b> temp;
+       }
+
+       <b style="color: Navy;">void</b> output()
+       {
+           <b style="color: Navy;">if</b>(imag &lt; <span style="color: Teal;">0</span>)
+               <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Output Complex number: "</span>&lt;&lt; real &lt;&lt; imag &lt;&lt; <span style="color: Green;">"i"</span>;
+           <b style="color: Navy;">else</b>
+               <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Output Complex number: "</span> &lt;&lt; real &lt;&lt; <span style="color: Green;">"+"</span> &lt;&lt; imag &lt;&lt; <span style="color: Green;">"i"</span>;
+       }
+};
+
+<b style="color: Navy;">int</b> <b style="color: Navy;">main</b>()
+{
+    <b style="color: Navy;">Complex</b> c1, c2, result;
+
+    cout&lt;&lt;<span style="color: Green;">"Enter first complex number:\n"</span>;
+    c1.input();
+
+    cout&lt;&lt;<span style="color: Green;">"Enter second complex number:\n"</span>;
+    c2.input();
+
+    <i style="color: Gray;">// In case of operator overloading of binary operators in C++ programming, </i>
+    <i style="color: Gray;">// the object on right hand side of operator is always assumed as argument by compiler.</i>
+    result = c1 - c2;
+    result.output();
+
+    <b style="color: Navy;">return</b> <span style="color: Teal;">0</span>;
+}
+
+
+<b style="color: Navy;">using</b> <b style="color: Navy;">namespace</b> std;
+
+<b style="color: Navy;">bool</b> check_prime(<b style="color: Navy;">int</b> n);
+
+<b style="color: Navy;">int</b> <b style="color: Navy;">main</b>() {
+
+  <b style="color: Navy;">int</b> n, i;
+  <b style="color: Navy;">bool</b> flag = <b style="color: Navy;">false</b>;
+
+  <b style="color: Navy;">cout</b> &lt;&lt; <span style="color: Green;">"Enter a positive  integer: "</span>;
+  <b style="color: Navy;">cin</b> &gt;&gt; n;
+
+  <b style="color: Navy;">for</b>(i = <span style="color: Teal;">2</span>; i &lt;= n/<span style="color: Teal;">2</span>; ++i) {
+    <b style="color: Navy;">if</b> (check_prime(i)) {
+      <b style="color: Navy;">if</b> (check_prime(n - i)) {
+        <b style="color: Navy;">cout</b> &lt;&lt; n &lt;&lt; <span style="color: Green;">" = "</span> &lt;&lt; i &lt;&lt; <span style="color: Green;">" + "</span> &lt;&lt; n-i &lt;&lt; <b style="color: Navy;">endl</b>;
+        flag = <b style="color: Navy;">true</b>;
+      }
+    }
+  }
+
+  <b style="color: Navy;">if</b> (!flag)
+    <b style="color: Navy;">cout</b> &lt;&lt; n &lt;&lt; <span style="color: Green;">" can't be expressed as sum of two prime numbers."</span>;
+
+  <b style="color: Navy;">return</b> <span style="color: Teal;">0</span>;
+}
+
+<i style="color: Gray;">// check prime number</i>
+<b style="color: Navy;">bool</b> check_prime(<b style="color: Navy;">int</b> n) {
+  <b style="color: Navy;">int</b> i;
+  <b style="color: Navy;">bool</b> is_prime = <b style="color: Navy;">true</b>;
+
+  <i style="color: Gray;">// 0 and 1 are not prime numbers</i>
+  <b style="color: Navy;">if</b> (n == <span style="color: Teal;">0</span> || n == <span style="color: Teal;">1</span>) {
+    is_prime = <b style="color: Navy;">false</b>;
+  }
+  
+  <b style="color: Navy;">for</b>(i = <span style="color: Teal;">2</span>; i &lt;= n/<span style="color: Teal;">2</span>; ++i) {
+    <b style="color: Navy;">if</b>(n % i == <span style="color: Teal;">0</span>) {
+      is_prime = <b style="color: Navy;">false</b>;
+      <b style="color: Navy;">break</b>;
+    }
+  }
+
+  <b style="color: Navy;">return</b> is_prime;
+}
+<hr>
+Copyright © 2025
+</pre>
+</body>
+</html>
