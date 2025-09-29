@@ -185,7 +185,7 @@ begin
   with ReservList do begin
   Add('Dimn');
   Add('integer');
-{ .. ]
+{ type in how much want }
 
   end;
 end;
