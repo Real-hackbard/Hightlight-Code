@@ -219,3 +219,6 @@ Damit dieses Problem nicht auftaucht, hat das Programm oben links die Option "Re
 
 If the tabs are removed from the code, the code loses its cascading, which would then have to be edited manually if you care about it.
 
+In [word processing](https://en.wikipedia.org/wiki/Word_processor) and [text editing](https://en.wikipedia.org/wiki/Text_editor), the Tab key will move the insertion point to the next tab stop in a table, insert the ASCII tab character, or insert multiple space characters (depending on the program used).
+
+When filling out a computerized form, pressing Tab will sometimes move the cursor to the next field (and Shift-Tab will move the cursor to the previous field), eliminating the need to use a mouse to click in an adjacent field.
