@@ -191,7 +191,7 @@ begin
 end;
 ```
 
-* Next, you need to add your programming language to the OnChange event of the code box in the main unit. This is this section.
+* Next, you need to add your programming language to the "OnChange" Event of the code box in the Main Unit. This is this section.
 ```pascal
 if ComboBox1.ItemIndex = 5 then begin
     with TVisualBasic.Create, Form2 do begin
@@ -208,4 +208,12 @@ if ComboBox1.ItemIndex = 5 then begin
       Memo2.Text := Convert(Memo1.Text, Form1.CheckBox1.Checked);
       end;
     end;
-```pascal
+```
+
+* Now you can use the options form for your coloring and create an HTML product.
+
+### Important: [Text tabs](https://en.wikipedia.org/wiki/Tab_key):
+If you copy code from the browser, there are usually no tabs in the code, but this is not the case with local system editors. Pre-written program code often has tabs in the text that you can't see. The problem is that these tabs can interfere with the coloring of the code. The code can't detect the tabs, and the coloring fails.
+
+
+
