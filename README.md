@@ -154,9 +154,27 @@ if (S[J] = '{') and (S[J + 1] = '$') and
         Break;
       end;
 ```
+* Sections can be removed or added as desired, depending on how many colorings are needed.
 
+To color a line by character, the code would look like this:
+```pascal
+      if (S[J] = '/') and
+        not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
+        Insert(Bcom, S, J);
+        Insert(Ecom, S, Length(S) + 1);
+        Break;
+      end;
+```
 
-
-
+To color after a whole word, each character must be assigned to the parameter individually. Then the code looks like this:
+```pascal
+// Here everything is colored according to the MS-DOS command "Rem".
+if (S[J] = 'R') and (S[J + 1] = 'e') and (S[J + 2] = 'm') and (S[J + 3] = ' ') and
+        not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
+        Insert(Bcom, S, J);
+        Insert(Ecom, S, Length(S) + 1);
+        Break;
+      end;
+```
 
 
