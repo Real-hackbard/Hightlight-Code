@@ -66,5 +66,97 @@ type
 ```
 
 * After that, all functions must be renamed to the new class. The debugger will show you where.
+* Next, the characters that assign the coloring to the syntax must be specified.
+
+```pascal
+// Coloring between {$ ... }
+if (S[J] = '{') and (S[J + 1] = '$') and
+        not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
+        IsDir := True;
+        Insert(Bdir, S, J);
+        Inc(J, Length(Bdir) + 1);
+        Continue;
+      end;
+      if (S[J] = '}') and Isdir then begin
+        IsDir := False;
+        Insert(Edir, S, J + 1);
+        Inc(J, Length(Edir));
+        Continue;
+      end;
+
+
+// Coloring between (*$ ... *)
+      if (S[J] = '(') and (S[J + 1] = '*') and (S[J + 2] = '$') and
+        not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
+        IsDir1 := True;
+        Insert(Bdir, S, J);
+        Inc(J, Length(Bdir) + 2);
+        Continue;
+      end;
+      if (S[J] = '*') and (S[J + 1] = ')') and IsDir1 then begin
+        IsDir1 := False;
+        Insert(Edir, S, J + 2);
+        Inc(J, Length(Edir) + 1);
+        Continue;
+      end;
+
+
+// Coloring between { ... }
+      if (S[J] = '{') and not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then
+        begin
+        IsCom := True;
+        Insert(Bcom, S, J);
+        Inc(J, Length(Bcom));
+        Continue;
+      end;
+      if (S[J] = '}') and IsCom then begin
+        IsCom := False;
+        Insert(Ecom, S, J + 1);
+        Inc(J, Length(Ecom));
+        Continue;
+      end;
+
+// Coloring between (* ... *)
+      if (S[J] = '(') and (S[J + 1] = '*') and
+        not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
+        IsCom1 := True;
+        Insert(Bcom, S, J);
+        Inc(J, Length(Bcom) + 1);
+        Continue;
+      end;
+      if (S[J] = '*') and (S[J + 1] = ')') and IsCom1 then begin
+        IsCom1 := False;
+        Insert(Ecom, S, J + 2);
+        Inc(J, Length(Ecom) + 1);
+        Continue;
+      end;
+
+// Coloring between ' ... '
+      if (S[J] = '''') and not (IsCom or IsDir or IsStr or IsCom1 or IsDir1)
+        then begin
+        IsStr := True;
+        Insert(Bstr, S, J);
+        Inc(J, Length(Bstr));
+        Continue;
+      end;
+      if (S[J] = '''') and IsStr then begin
+        IsStr := False;
+        Insert(Estr, S, J + 1);
+        Inc(J, Length(Estr));
+        Continue;
+      end;
+
+// Coloring after // ...
+      if (S[J] = '/') and (S[J + 1] = '/') and
+        not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
+        Insert(Bcom, S, J);
+        Insert(Ecom, S, Length(S) + 1);
+        Break;
+      end;
+```
+
+
+
+
 
 
