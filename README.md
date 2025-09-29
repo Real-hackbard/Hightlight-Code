@@ -45,6 +45,6 @@ The code colors the syntax into four methods:
 * Individual letters or numbers
 * Entire individual ranges
 
-To add your own programming language and color it individually, you must create a new unit from which the syntax coloring takes place. Otherwise, there would be overlaps with the other programming languages.
+To add your own Programming language and color it individually, you must create a new Unit from which the syntax coloring takes place. Otherwise, there would be overlaps with the other programming languages.
 
-* First, create an empty *.pas file and rename it to your new programming language, e.g. VisualBasic.vbs
+* First, create an empty *.pas file and rename it to your new programming language, Example: ```VisualBasic.vbs```
