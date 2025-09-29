@@ -38,7 +38,12 @@ Syntax highlighting is a form of [secondary notation](https://en.wikipedia.org/w
 
 These five programming languages ​​can currently be colorized with their code. However, the code can essentially be used for any programming language ever developed or to be developed in the future. You can even color simple syntax from an editor, if you want.
 
-
+### How can I add a programming language?
+The code colors the syntax into four methods:
+* Entire lines
+* Entire blocks
+* Individual letters or numbers
+* Entire individual ranges
 
 
 
