@@ -177,4 +177,16 @@ if (S[J] = 'R') and (S[J + 1] = 'e') and (S[J + 2] = 'm') and (S[J + 3] = ' ') a
       end;
 ```
 
+* In the lower part of the code, reserved commands can be defined for the entire text code, such as "Dim" or "integer" in Visual Basic. This reserved list can be extended to infinity.
 
+```pascal
+procedure TVisualBasic.LoadReservList;
+begin
+  with ReservList do begin
+  Add('Dimn');
+  Add('integer');
+{ .. ]
+
+  end;
+end;
+```
