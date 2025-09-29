@@ -156,7 +156,7 @@ if (S[J] = '{') and (S[J + 1] = '$') and
 ```
 * Sections can be removed or added as desired, depending on how many colorings are needed.
 
-To color a line by character, the code would look like this:
+* To color a line by character, the code would look like this:
 ```pascal
       if (S[J] = '/') and
         not (IsCom or IsDir or IsStr or IsCom1 or IsDir1) then begin
