@@ -190,3 +190,22 @@ begin
   end;
 end;
 ```
+
+* Next, you need to add your programming language to the OnChange event of the code box in the main unit. This is this section.
+```pascal
+if ComboBox1.ItemIndex = 5 then begin
+    with TVisualBasic.Create, Form2 do begin
+      Bcom := Edit7.Text;
+      ECom := Edit8.Text;
+      Bres := Edit5.Text;
+      Eres := Edit6.Text;
+      Bnum := Edit1.Text;
+      Enum := Edit2.Text;
+      Bstr := Edit3.Text;
+      Estr := Edit4.Text;
+      Bdir := Edit9.Text;
+      Edir := Edit10.Text;
+      Memo2.Text := Convert(Memo1.Text, Form1.CheckBox1.Checked);
+      end;
+    end;
+```pascal
