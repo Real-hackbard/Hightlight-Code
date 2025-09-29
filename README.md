@@ -215,7 +215,7 @@ if ComboBox1.ItemIndex = 5 then begin
 ### Important: [Text tabs](https://en.wikipedia.org/wiki/Tab_key):
 If you copy code from the browser, there are usually no tabs in the code, but this is not the case with local system editors. Pre-written program code often has tabs in the text that you can't see. The problem is that these tabs can interfere with the coloring of the code. The code can't detect the tabs, and the coloring fails.
 
-Damit dieses Problem nicht auftaucht, hat das Programm oben links die Option "Remove Tabs". Deshalb sollte man beide Methoden ausprobieren, um die Färbung erfolgreich zu gewährleisten.
+To prevent this problem, the program has a "Remove Tabs" option in the top left corner. Therefore, you should try both methods to ensure successful coloring.
 
 If the tabs are removed from the code, the code loses its cascading, which would then have to be edited manually if you care about it.
 
