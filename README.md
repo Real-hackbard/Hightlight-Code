@@ -29,5 +29,16 @@ Syntax highlighting is a form of [secondary notation](https://en.wikipedia.org/w
 
 </br>
 
+### Integrated Programming Languages:
+* Pascal (*.pas)
+* C/C++ (*.cpp)
+* JavaScript (*.js)
+* Python (*.py)
+* Shell/Batch (*.bat)
+
+These five programming languages ​​can currently be colorized with their code. However, the code can essentially be used for any programming language ever developed or to be developed in the future. You can even color simple syntax from an editor, if you want.
+
+
+
 
 
